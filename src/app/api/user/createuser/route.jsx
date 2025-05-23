@@ -17,11 +17,11 @@ export async function POST(request) {
         );
 
         return Response.json(
-            { message: "User added successfully", userId: result.insertId },
+            { message: "success"},
             { status: 201 }
         );
     } catch (error) {
         console.error("Error adding user:", error);
-        return Response.json({ error: "Failed to add user" }, { status: 500 });
+        return Response.json({ message: "failure" }, { status: 500 });
     }
 }
