@@ -49,7 +49,7 @@ const Login = () => {
     }
   
   return (
-    <div className='w-dvw h-dvh flex flex-col justify-center items-center bg-gradient-to-r from-blue-500 to-purple-500'>
+    <div className='w-dvw h-dvh flex flex-col justify-center items-center bg-gradient-to-r from-blue-500/50 to-purple-500/50'>
         <h1 className='text-4xl text-white font-bold mb-1'>Login</h1> 
         <form method='POST' className='w-[35vw] h-fit p-4 bg-white rounded text-black shadow-md grid grid-cols-2 gap-4' onSubmit={handleSubmit}>
             <label htmlFor="username">Username</label>

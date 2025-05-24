@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-html{
+html,#allblogs{
   scroll-behavior: smooth;
   scrollbar-width: none;
 }
