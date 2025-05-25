@@ -1,1 +1,1 @@
-# CosMos : a open source knowledge space / blog app.
+# CosMos : am open source knowledge space / blog app.
