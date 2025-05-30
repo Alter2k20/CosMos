@@ -1,12 +1,17 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState,useContext } from "react";
 
-function page() {
+import { UserContext } from "@/app/contexts/UserContext";
+
+export default function Editor() {
+
+    const [userID] = useContext(UserContext)
+
     const [data, setData] = useState({
         heading: "",
         content: "",
         topic: "",
-        userId: 1, // have to add an method to get the userID ..........................................................................
+        userId: userID, // have to add an method to get the userID ..........................................................................
     });
 
     const handleSubmit = async (e) => {
@@ -93,4 +98,3 @@ function page() {
     );
 }
 
-export default page;

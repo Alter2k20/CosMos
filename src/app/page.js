@@ -27,7 +27,7 @@ export default function Home() {
                         Welcome to <span className="font-mono text-8xl">CosMos</span> experience
                     </div>
                     <Link
-                        href={"/Editor"}
+                        href={"/Home"}
                         className="m-4 rounded-xl w-fit h-fit p-2 bg-purple-600 text-6xl"
                     >
                         Get started{" "}

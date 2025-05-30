@@ -1,30 +1,64 @@
 "use client";
-import { useEffect,useState } from "react";
-import ReactMarkdown from "react-markdown"
 
-export default function page() {
-  const [blogs, setBlogs] = useState([]);
-    useEffect(()=>{
-        fetch('/api/blog/getblogs')
-        .then((respone)=>respone.json())
-        .then((data)=>{
-          console.log(data)
-          setBlogs([...data])
-        })
-        .catch((err)=>{console.log(err)})
-    },[])
-  return (
-    <div className="w-[100vw] h-[100vh] flex justify-center">
-      <div id="matrices" className="w-[20vw] p-4 grid grid-cols-2"><div>Total no of blogs :</div><div> {blogs.length}</div></div>
-      <div id="allblogs" className="text-white w-[60vw] max-h-dvh grid grid-rows-[auto]  gap-4 overflow-y-scroll border-l-2 border-r-2 p-2 ">
-      {blogs.map((val)=>(
-        <div key={val.blogId} className="grid grid-cols-1 grid-rows-2 border-2 mb-2 bg-gray-800 p-4 rounded-md">
-          <div className="flex justify-between place-content-center">{val.heading}<pre className="w-fit h-fit p-1 bg-gray-600/50 rounded-md text-sm">{val.topic}</pre></div>
-          <div>{val.content}</div>
-        </div>
-      ))}
-    </div>
-    <div id="filter" className="w-[20vw]"></div>
-    </div>
-  )
+import { useContext, useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
+
+import Allblogs from "../Allblogs/Allblogs";
+import Editor from "../Editor/Editor";
+
+import { UserContext } from "@/app/contexts/UserContext";
+
+function RedirectToLogin() {
+    const router = useRouter();
+
+    useEffect(() => {
+        router.push("/Login");
+    }, [router]);
+
+    return null; // Or a spinner while redirecting
 }
+
+function Page() {
+    const [children, setChildren] = useState(0);
+    const { userId, setUserId } = useContext(UserContext);
+
+    return (
+        <div>
+            <nav className="fixed w-[100vw] h-8 z-50">
+                {console.log(userId)}
+                <ul className="flex justify-end place-items-center">
+                    <li
+                        className="cursor-pointer m-2 p-1 rounded-md bg-indigo-600 hover:bg-indigo-700"
+                        onClick={(e) => {
+                            e.preventDefault();
+                            setChildren(0);
+                        }}
+                    >
+                        Home
+                    </li>
+                    <li
+                        className="cursor-pointer m-2 p-1 rounded-md bg-indigo-600 hover:bg-indigo-700"
+                        onClick={(e) => {
+                            e.preventDefault();
+                            setChildren(1);
+                        }}
+                    >
+                        Create +
+                    </li>
+                </ul>
+            </nav>
+            <div id="child-container">
+                {children === 0 ? (
+                    <Allblogs />
+                ) : userId > 0 ? (
+                    <Editor />
+                ) : (
+                    <RedirectToLogin />
+                )}
+            </div>
+            
+        </div>
+    );
+}
+
+export default Page;

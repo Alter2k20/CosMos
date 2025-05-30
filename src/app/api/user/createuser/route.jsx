@@ -17,7 +17,7 @@ export async function POST(request) {
         );
 
         return Response.json(
-            { message: "success"},
+            { message: "success",userId: result.insertId },
             { status: 201 }
         );
     } catch (error) {
