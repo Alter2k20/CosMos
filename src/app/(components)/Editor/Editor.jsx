@@ -5,13 +5,13 @@ import { UserContext } from "@/app/contexts/UserContext";
 
 export default function Editor() {
 
-    const [userID] = useContext(UserContext)
+    const { userId, setUserId } = useContext(UserContext);
 
     const [data, setData] = useState({
         heading: "",
         content: "",
         topic: "",
-        userId: userID, // have to add an method to get the userID ..........................................................................
+        userId: userId,
     });
 
     const handleSubmit = async (e) => {
