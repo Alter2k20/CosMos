@@ -37,15 +37,6 @@ function Page() {
                         All Blogs
                     </li>
                     <li
-                    className="cursor-pointer m-2 p-1 rounded-md bg-indigo-600 hover:bg-indigo-700"
-                        onClick={(e) => {
-                            e.preventDefault();
-                            setChildren(2);
-                        }}
-                    >
-                        My blogs
-                    </li>
-                    <li
                         className="cursor-pointer m-2 p-1 rounded-md bg-indigo-600 hover:bg-indigo-700"
                         onClick={(e) => {
                             e.preventDefault();

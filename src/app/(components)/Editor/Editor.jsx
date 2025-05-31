@@ -30,17 +30,15 @@ export default function Editor() {
     };
 
     return (
-        <div className=" flex justify-center place-items-center w-fit h-fit">
+        <div className="flex justify-center items-center w-full h-full bg-gray-900">
             <form
-                className=" h-[100vh] w-[100vw]  flex flex-col justify-center place-items-center bg-purple-900/50 rounded-lg p-4 "
+                className="flex flex-col justify-center items-center bg-gray-800 rounded-lg p-6 shadow-lg w-full h-full"
                 onSubmit={handleSubmit}
             >
-                <h1 className="text-white text-2xl">Create your content</h1>
-                <label htmlFor="heading" className="text-white">
-                    heading:
-                </label>
+                <h1 className="text-gray-100 text-3xl font-bold mb-6">Create your content</h1>
+                <label htmlFor="heading" className="text-gray-400 mb-2">Heading:</label>
                 <input
-                    className="w-[80vw] h-[10%] bg-purple-800/50 text-white rounded-lg  p-2 outline-0"
+                    className="w-3/4 h-12 bg-gray-700 text-gray-100 rounded-lg p-2 mb-4 outline-none"
                     type="text"
                     name="heading"
                     id="heading"
@@ -53,15 +51,13 @@ export default function Editor() {
                         }));
                     }}
                 />
-                <label htmlFor="edit" className="text-white">
-                    Edit your content:
-                </label>
+                <label htmlFor="edit" className="text-gray-400 mb-2">Edit your content:</label>
                 <textarea
-                    className="w-[80vw] h-[70vh]  bg-purple-800/50 text-white rounded-lg resize-none overflow-y-auto p-2 outline-0"
+                    className="w-3/4 h-[50vh] bg-gray-700 text-gray-100 rounded-lg p-2 mb-4 resize-none outline-none"
                     name="content"
                     id="edit"
                     value={data.content}
-                    aria-multiline={"true"}
+                    aria-multiline="true"
                     placeholder="Text ....."
                     onChange={(e) => {
                         setData((prevFormData) => ({
@@ -70,11 +66,9 @@ export default function Editor() {
                         }));
                     }}
                 />
-                <label htmlFor="topic" className="text-white">
-                    Topic:
-                </label>
+                <label htmlFor="topic" className="text-gray-400 mb-2">Topic:</label>
                 <input
-                    className="w-[80vw] h-[10%] bg-purple-800/50 text-white rounded-lg p-2 outline-0"
+                    className="w-3/4 h-12 bg-gray-700 text-gray-100 rounded-lg p-2 mb-4 outline-none"
                     type="text"
                     name="topic"
                     id="topic"
@@ -89,7 +83,7 @@ export default function Editor() {
                 />
                 <button
                     type="submit"
-                    className="mt-2 cursor-pointer hover:bg-green-900 transition-colors bg-green-600 rounded-lg p-2 "
+                    className="mt-4 cursor-pointer hover:bg-green-700 transition-colors bg-green-600 text-gray-100 rounded-lg p-3"
                 >
                     Submit
                 </button>
